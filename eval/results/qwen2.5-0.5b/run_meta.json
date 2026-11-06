@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "name": "qwen2.5-0.5b",
+  "seed": 1234,
+  "limit": null,
+  "lm_eval": "0.4.13",
+  "transformers": "5.13.0",
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tasks": {
+    "squad_it": {
+      "num_fewshot": 0,
+      "seconds": 5527.3
+    }
+  }
+}

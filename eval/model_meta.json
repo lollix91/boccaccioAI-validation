@@ -1,0 +1,127 @@
+{
+  "_comment": "Static metadata for the paper tables/figures. Benchmark scores are NOT here: they are read from eval/results/. Parameter counts are computed from the HF configs by eval/paper_assets.py. pretrain_tokens = declared pretraining tokens (post-training excluded for every model).",
+  "models": [
+    {
+      "name": "boccaccio-base-p2",
+      "display": "BoccaccioAI base (P2)",
+      "short": "Base",
+      "table_label": "Base (P2)",
+      "hf": "models/boccaccio-base-p2-hf",
+      "group": "ours",
+      "pretrain_tokens": 10.8e9,
+      "source": "main.tex Tab. cost: 6.6B (P1) + 4.2B (P2) = 10.8B"
+    },
+    {
+      "name": "boccaccio-sft-v1",
+      "display": "BoccaccioAI SFT V1",
+      "short": "SFT",
+      "table_label": "SFT V1",
+      "hf": "models/boccaccio-sft-v1-hf",
+      "group": "ours",
+      "pretrain_tokens": 10.8e9,
+      "source": "same base as boccaccio-base-p2"
+    },
+    {
+      "name": "boccaccio-distill",
+      "display": "BoccaccioAI (distilled)",
+      "short": "Distill",
+      "table_label": "Distilled",
+      "hf": "models/boccaccio-distill-hf",
+      "group": "ours",
+      "pretrain_tokens": 10.8e9,
+      "source": "same base as boccaccio-base-p2"
+    },
+    {
+      "name": "minerva-350m",
+      "display": "Minerva-350M",
+      "hf": "sapienzanlp/Minerva-350M-base-v1.0",
+      "group": "italian",
+      "pretrain_tokens": 70e9,
+      "source": "https://huggingface.co/sapienzanlp/Minerva-1B-base-v1.0 (family table: 70B, 35B it + 35B en)"
+    },
+    {
+      "name": "minerva-1b",
+      "display": "Minerva-1B",
+      "hf": "sapienzanlp/Minerva-1B-base-v1.0",
+      "group": "italian",
+      "pretrain_tokens": 200e9,
+      "source": "https://huggingface.co/sapienzanlp/Minerva-1B-base-v1.0 (200B, 100B it + 100B en)"
+    },
+    {
+      "name": "qwen2.5-0.5b",
+      "display": "Qwen2.5-0.5B",
+      "hf": "Qwen/Qwen2.5-0.5B",
+      "group": "multilingual",
+      "pretrain_tokens": 18e12,
+      "source": "Qwen2.5 Technical Report, arXiv:2412.15115 (18T tokens)"
+    },
+    {
+      "name": "qwen3-0.6b",
+      "display": "Qwen3-0.6B",
+      "hf": "Qwen/Qwen3-0.6B",
+      "group": "multilingual",
+      "pretrain_tokens": 36e12,
+      "source": "Qwen3 Technical Report, arXiv:2505.09388 (36T tokens)",
+      "post_trained": true,
+      "note": "Qwen/Qwen3-0.6B is the post-trained (instruction/thinking) release, not Qwen/Qwen3-0.6B-Base; pretrain_tokens refers to its pretraining only. Declared in the paper."
+    },
+    {
+      "name": "gemma-3-1b-pt",
+      "display": "Gemma-3-1B",
+      "hf": "google/gemma-3-1b-pt",
+      "group": "multilingual",
+      "pretrain_tokens": 2e12,
+      "source": "Gemma 3 Technical Report, arXiv:2503.19786 (2T tokens for 1B)"
+    },
+    {
+      "name": "llama-3.2-1b",
+      "display": "Llama-3.2-1B",
+      "hf": "meta-llama/Llama-3.2-1B",
+      "group": "multilingual",
+      "pretrain_tokens": 9e12,
+      "source": "https://huggingface.co/meta-llama/Llama-3.2-1B (up to 9T tokens)"
+    },
+    {
+      "name": "smollm2-360m",
+      "display": "SmolLM2-360M",
+      "hf": "HuggingFaceTB/SmolLM2-360M",
+      "group": "english",
+      "pretrain_tokens": 4e12,
+      "source": "SmolLM2 paper, arXiv:2502.02737, Sec. 6 (4T tokens)"
+    },
+    {
+      "name": "pythia-410m",
+      "display": "Pythia-410M",
+      "hf": "EleutherAI/pythia-410m",
+      "group": "english",
+      "pretrain_tokens": 300e9,
+      "source": "Pythia paper, arXiv:2304.01373 (300B tokens)"
+    },
+    {
+      "name": "pythia-1b",
+      "display": "Pythia-1B",
+      "hf": "EleutherAI/pythia-1b",
+      "group": "english",
+      "pretrain_tokens": 300e9,
+      "source": "Pythia paper, arXiv:2304.01373 (300B tokens)"
+    }
+  ],
+  "groups": {
+    "ours": "BoccaccioAI (this work)",
+    "italian": "Italian-native",
+    "multilingual": "Multilingual",
+    "english": "English-centric"
+  },
+  "tasks": [
+    {"task": "arc_it", "metric": "acc_norm", "label": "ARC"},
+    {"task": "hellaswag_it", "metric": "acc_norm", "label": "HellaS."},
+    {"task": "belebele_ita_Latn", "metric": "acc_norm", "label": "Belebele"},
+    {"task": "m_mmlu_it", "metric": "acc", "label": "MMLU"},
+    {"task": "include_base_44_italian", "metric": "acc", "label": "INCLUDE"},
+    {"task": "lambada_openai_mt_it", "metric": "acc", "label": "LAMBADA"},
+    {"task": "truthfulqa_it_mc1", "metric": "acc", "label": "TQA-mc1"},
+    {"task": "truthfulqa_it_mc2", "metric": "acc", "label": "TQA-mc2"},
+    {"task": "squad_it", "metric": "contains", "label": "SQuAD"}
+  ],
+  "ours_cost_usd": 74
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Benchmark-v2 items dropped from every score (judge.py report, human_review.py). Each entry duplicates an earlier item with the same question and gold.",
+  "items": [
+    {"id": "v2-h014", "reason": "duplicate of v1-009 (Chi era Giulio Cesare?)"},
+    {"id": "v2-t014", "reason": "duplicate of v2-c009 (Chi ha scritto Il nome della rosa?)"}
+  ]
+}

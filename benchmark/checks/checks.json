@@ -1,0 +1,37 @@
+{
+  "weights": {
+    "production_sha256": "f68303d70a935519e8ab354d8d44a978b2f7e437bd214da7ec50b7deabc6afc3",
+    "local_sha256": "f68303d70a935519e8ab354d8d44a978b2f7e437bd214da7ec50b7deabc6afc3",
+    "identical": true
+  },
+  "retrieval": {
+    "n": 368,
+    "n_abstained": 53,
+    "identical": 368,
+    "differing_ids": []
+  },
+  "generation": {
+    "n": 368,
+    "identical": 368,
+    "differing_ids": []
+  },
+  "sensitivity": {
+    "boccaccio-sft-v1": {
+      "note": "same weights as the scored benchmark system, generated with the generic prompt instead of the training chat format (prompt-sensitivity check, not a scored benchmark row)",
+      "accuracy": 0.2518450184501845,
+      "accuracy_ci": [
+        0.20848708487084872,
+        0.29704797047970477
+      ],
+      "accuracy_on_answered": 0.2518450184501845,
+      "n_answered": 271,
+      "refusals_on_answerable": 0,
+      "abstention_rate": 0.010526315789473684,
+      "scored_system": "boccaccio-sft-v1-chat",
+      "accuracy_on_scored_answered": 0.2740740740740741,
+      "accuracy_on_scored_refused": 0.22977941176470587,
+      "n_scored_answered": 135,
+      "n_scored_refused": 136
+    }
+  }
+}

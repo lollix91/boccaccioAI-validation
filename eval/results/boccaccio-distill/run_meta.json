@@ -1,0 +1,49 @@
+{
+  "model": "models/boccaccio-distill-hf",
+  "name": "boccaccio-distill",
+  "seed": 1234,
+  "limit": null,
+  "lm_eval": "0.4.13",
+  "transformers": "5.13.0",
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tasks": {
+    "arc_it": {
+      "num_fewshot": 0,
+      "seconds": 95.2
+    },
+    "hellaswag_it": {
+      "num_fewshot": 0,
+      "seconds": 324.1
+    },
+    "belebele_ita_Latn": {
+      "num_fewshot": 0,
+      "seconds": 45.4
+    },
+    "m_mmlu_it": {
+      "num_fewshot": 5,
+      "seconds": 7163.2
+    },
+    "include_base_44_italian": {
+      "num_fewshot": 0,
+      "seconds": 557.4
+    },
+    "lambada_openai_mt_it": {
+      "num_fewshot": 0,
+      "seconds": 88.7
+    },
+    "truthfulqa_it_mc1": {
+      "num_fewshot": 0,
+      "seconds": 115.2
+    },
+    "truthfulqa_it_mc2": {
+      "num_fewshot": 0,
+      "seconds": 151.2
+    },
+    "squad_it": {
+      "num_fewshot": 0,
+      "seconds": 966.7
+    }
+  }
+}

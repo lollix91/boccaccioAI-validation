@@ -1,0 +1,49 @@
+{
+  "model": "sapienzanlp/Minerva-350M-base-v1.0",
+  "name": "minerva-350m",
+  "seed": 1234,
+  "limit": null,
+  "lm_eval": "0.4.13",
+  "transformers": "5.13.0",
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tasks": {
+    "arc_it": {
+      "num_fewshot": 0,
+      "seconds": 135.7
+    },
+    "hellaswag_it": {
+      "num_fewshot": 0,
+      "seconds": 254.9
+    },
+    "belebele_ita_Latn": {
+      "num_fewshot": 0,
+      "seconds": 57.0
+    },
+    "m_mmlu_it": {
+      "num_fewshot": 5,
+      "seconds": 6969.0
+    },
+    "include_base_44_italian": {
+      "num_fewshot": 0,
+      "seconds": 377.4
+    },
+    "lambada_openai_mt_it": {
+      "num_fewshot": 0,
+      "seconds": 82.3
+    },
+    "truthfulqa_it_mc1": {
+      "num_fewshot": 0,
+      "seconds": 87.4
+    },
+    "truthfulqa_it_mc2": {
+      "num_fewshot": 0,
+      "seconds": 80.4
+    },
+    "squad_it": {
+      "num_fewshot": 0,
+      "seconds": 158.4
+    }
+  }
+}

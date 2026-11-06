@@ -1,0 +1,14 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-360M",
+  "name": "smollm2-360m",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.4056315748570334,
+  "nll_nats": 8051900.782409668,
+  "bytes": 8264212,
+  "tokens": 2937917,
+  "bytes_per_token": 2.8129494468359724,
+  "token_ppl": 15.497574787164732,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 1627.3
+}

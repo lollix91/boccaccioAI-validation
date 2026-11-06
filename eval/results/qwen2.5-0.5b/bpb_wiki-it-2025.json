@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "name": "qwen2.5-0.5b",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.110094052968796,
+  "nll_nats": 6358968.689613342,
+  "bytes": 8264212,
+  "tokens": 2500508,
+  "bytes_per_token": 3.305013221313429,
+  "token_ppl": 12.718666580935142,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 1739.4
+}

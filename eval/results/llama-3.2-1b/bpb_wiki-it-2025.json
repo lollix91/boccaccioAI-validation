@@ -1,0 +1,14 @@
+{
+  "model": "meta-llama/Llama-3.2-1B",
+  "name": "llama-3.2-1b",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 0.8199127305925572,
+  "nll_nats": 4696718.596149445,
+  "bytes": 8264212,
+  "tokens": 2429766,
+  "bytes_per_token": 3.4012378146702194,
+  "token_ppl": 6.91015553790933,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 1491.8
+}

@@ -1,0 +1,14 @@
+{
+  "model": "EleutherAI/pythia-410m",
+  "name": "pythia-410m",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.2273466502740005,
+  "nll_nats": 7030628.530548096,
+  "bytes": 8264212,
+  "tokens": 2617140,
+  "bytes_per_token": 3.157726373063726,
+  "token_ppl": 14.67842110077475,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 662.8
+}

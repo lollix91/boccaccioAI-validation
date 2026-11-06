@@ -1,0 +1,14 @@
+{
+  "model": "models/boccaccio-sft-v1-hf",
+  "name": "boccaccio-sft-v1",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.1202989437845479,
+  "nll_nats": 6417425.521270752,
+  "bytes": 8264212,
+  "tokens": 1929092,
+  "bytes_per_token": 4.283990602832835,
+  "token_ppl": 27.845072570938914,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 636.5
+}

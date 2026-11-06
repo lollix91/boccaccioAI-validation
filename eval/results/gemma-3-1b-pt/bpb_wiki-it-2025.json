@@ -1,0 +1,14 @@
+{
+  "model": "google/gemma-3-1b-pt",
+  "name": "gemma-3-1b-pt",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 0.8057555777037048,
+  "nll_nats": 4615621.961397171,
+  "bytes": 8264212,
+  "tokens": 2150065,
+  "bytes_per_token": 3.843703329899329,
+  "token_ppl": 8.55688319364479,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 3632.3
+}

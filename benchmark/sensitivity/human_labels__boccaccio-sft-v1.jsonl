@@ -1,0 +1,15 @@
+{"key": "boccaccio-sft-v1|v2-d010", "model": "boccaccio-sft-v1", "id": "v2-d010", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-d024", "model": "boccaccio-sft-v1", "id": "v2-d024", "answerable": true, "verdict": "correct", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-t018", "model": "boccaccio-sft-v1", "id": "v2-t018", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-d030", "model": "boccaccio-sft-v1", "id": "v2-d030", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-c015", "model": "boccaccio-sft-v1", "id": "v2-c015", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-c004", "model": "boccaccio-sft-v1", "id": "v2-c004", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-f050", "model": "boccaccio-sft-v1", "id": "v2-f050", "answerable": false, "verdict": "answered", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-f035", "model": "boccaccio-sft-v1", "id": "v2-f035", "answerable": false, "verdict": "answered", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-c013", "model": "boccaccio-sft-v1", "id": "v2-c013", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v1-015", "model": "boccaccio-sft-v1", "id": "v1-015", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-d023", "model": "boccaccio-sft-v1", "id": "v2-d023", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-s010", "model": "boccaccio-sft-v1", "id": "v2-s010", "answerable": true, "verdict": "wrong", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-r011", "model": "boccaccio-sft-v1", "id": "v2-r011", "answerable": true, "verdict": "partial", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-f077", "model": "boccaccio-sft-v1", "id": "v2-f077", "answerable": false, "verdict": "answered", "rater": "human"}
+{"key": "boccaccio-sft-v1|v2-c021", "model": "boccaccio-sft-v1", "id": "v2-c021", "answerable": true, "verdict": "wrong", "rater": "human"}

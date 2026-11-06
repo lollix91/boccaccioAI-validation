@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+models/
+eval/cache/
+eval/judge/cache/
+*.ckpt
+*.pt
+*.safetensors
+eval/results/*/*.samples.jsonl
+data/
+dist/

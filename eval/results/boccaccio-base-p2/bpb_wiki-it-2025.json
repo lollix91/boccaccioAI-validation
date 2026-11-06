@@ -1,0 +1,14 @@
+{
+  "model": "models/boccaccio-base-p2-hf",
+  "name": "boccaccio-base-p2",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 0.8499925517766012,
+  "nll_nats": 4869025.294475555,
+  "bytes": 8264212,
+  "tokens": 1929092,
+  "bytes_per_token": 4.283990602832835,
+  "token_ppl": 12.478391765471567,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 658.7
+}

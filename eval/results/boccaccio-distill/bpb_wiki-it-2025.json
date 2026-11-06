@@ -1,0 +1,14 @@
+{
+  "model": "models/boccaccio-distill-hf",
+  "name": "boccaccio-distill",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.0488637240224596,
+  "nll_nats": 6008222.062709808,
+  "bytes": 8264212,
+  "tokens": 1929092,
+  "bytes_per_token": 4.283990602832835,
+  "token_ppl": 22.522925678095778,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 632.5
+}

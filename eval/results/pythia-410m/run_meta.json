@@ -1,0 +1,49 @@
+{
+  "model": "EleutherAI/pythia-410m",
+  "name": "pythia-410m",
+  "seed": 1234,
+  "limit": null,
+  "lm_eval": "0.4.13",
+  "transformers": "5.13.0",
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tasks": {
+    "arc_it": {
+      "num_fewshot": 0,
+      "seconds": 76.3
+    },
+    "hellaswag_it": {
+      "num_fewshot": 0,
+      "seconds": 230.7
+    },
+    "belebele_ita_Latn": {
+      "num_fewshot": 0,
+      "seconds": 40.1
+    },
+    "m_mmlu_it": {
+      "num_fewshot": 5,
+      "seconds": 1600.9
+    },
+    "include_base_44_italian": {
+      "num_fewshot": 0,
+      "seconds": 820.1
+    },
+    "lambada_openai_mt_it": {
+      "num_fewshot": 0,
+      "seconds": 74.3
+    },
+    "truthfulqa_it_mc1": {
+      "num_fewshot": 0,
+      "seconds": 49.6
+    },
+    "truthfulqa_it_mc2": {
+      "num_fewshot": 0,
+      "seconds": 59.4
+    },
+    "squad_it": {
+      "num_fewshot": 0,
+      "seconds": 96.8
+    }
+  }
+}

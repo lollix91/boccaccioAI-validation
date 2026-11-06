@@ -1,0 +1,135 @@
+{
+  "results": {
+    "squad_it": {
+      "name": "squad_it",
+      "alias": "squad_it",
+      "sample_len": 2000,
+      "exact_match,none": 0.0025,
+      "exact_match_stderr,none": 0.0011169148353275139,
+      "f1,none": 0.034165303349259636,
+      "f1_stderr,none": 0.002417478521065043,
+      "contains,none": 0.081,
+      "contains_stderr,none": 0.006102304405675758
+    }
+  },
+  "group_subtasks": {},
+  "configs": {
+    "squad_it": {
+      "task": "squad_it",
+      "dataset_path": "crux82/squad_it",
+      "test_split": "test",
+      "process_docs": "def process_docs_squad_it(dataset: datasets.Dataset) -> datasets.Dataset:\n    \"\"\"Fixed random subset of the SQuAD-IT test split (same items for every model).\"\"\"\n    rng = np.random.RandomState(SQUAD_IT_SEED)\n    idx = np.sort(rng.choice(len(dataset), size=min(SQUAD_IT_SUBSET, len(dataset)), replace=False))\n    return dataset.select(idx.tolist())\n",
+      "doc_to_text": "Contesto: {{context}}\n\nDomanda: {{question}}\n\nRisposta breve:",
+      "doc_to_target": "{{answers['text'][0]}}",
+      "unsafe_code": false,
+      "process_results": "def process_results_squad_it(doc: dict, results: list) -> dict:\n    \"\"\"SQuAD v1 exact match, token F1 and gold-containment (max over golds), articles stripped.\"\"\"\n    pred = results[0].strip()\n    golds = doc[\"answers\"][\"text\"]\n    em = max(float(_normalize(pred) == _normalize(g)) for g in golds)\n    f1 = max(_f1(pred, g) for g in golds)\n    norm_pred = f\" {_normalize(pred)} \"\n    contains = max(float(f\" {_normalize(g)} \" in norm_pred) for g in golds)\n    return {\"exact_match\": em, \"f1\": f1, \"contains\": contains}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": "<function process_docs_squad_it at 0x000001D3A7499620>",
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Contesto: {{context}}\n\nDomanda: {{question}}\n\nRisposta breve:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers['text'][0]}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "contains",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n",
+          "</s>"
+        ],
+        "do_sample": false,
+        "max_gen_toks": 32
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "config_source": "E:\\boccaccioAI-validation\\eval\\tasks\\squad_it.yaml"
+      }
+    }
+  },
+  "versions": {
+    "squad_it": 1.0
+  },
+  "n-shot": {
+    "squad_it": 0
+  },
+  "higher_is_better": {
+    "squad_it": {
+      "exact_match": true,
+      "f1": true,
+      "contains": true
+    }
+  },
+  "n-samples": {
+    "squad_it": {
+      "original": 2000,
+      "effective": 2000
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=EleutherAI/pythia-1b,dtype=bfloat16",
+    "model_num_parameters": 1011781632,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "f73d7dcc545c8bd326d8559c8ef84ffe92fea6b2",
+    "batch_size": 16,
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 1234,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "524dee2",
+  "date": 1793314720.3308163,
+  "pretty_env_info": "PyTorch version: 2.6.0+cu124\nIs debug build: False\nCUDA used to build PyTorch: 12.4\nROCM used to build PyTorch: N/A\n\nOS: Microsoft Windows 11 Pro (10.0.26300 64 bit)\nGCC version: Could not collect\nClang version: Could not collect\nCMake version: Could not collect\nLibc version: N/A\n\nPython version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)] (64-bit runtime)\nPython platform: Windows-11-10.0.26300-SP0\nIs CUDA available: True\nCUDA runtime version: Could not collect\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: GPU 0: NVIDIA GeForce RTX 3060\nNvidia driver version: Could not collect\ncuDNN version: Could not collect\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nName: Intel(R) Core(TM) Ultra 9 285K\nManufacturer: GenuineIntel\nFamily: 775\nArchitecture: 9\nProcessorType: 3\nDeviceID: CPU0\nCurrentClockSpeed: 2696\nMaxClockSpeed: 3700\nL2CacheSize: 40960\nL2CacheSpeed: None\nRevision: None\n\nVersions of relevant libraries:\n[pip3] mypy_extensions==1.1.0\n[pip3] numpy==2.5.0\n[pip3] onnxruntime==1.27.0\n[pip3] pytorch-lightning==2.6.5\n[pip3] torch==2.6.0+cu124\n[pip3] torchmetrics==1.9.0\n[pip3] torchvision==0.21.0+cu124\n[conda] Could not collect",
+  "transformers_version": "5.13.0",
+  "lm_eval_version": "0.4.13",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|padding|>",
+    "1"
+  ],
+  "tokenizer_eos_token": [
+    "<|endoftext|>",
+    "0"
+  ],
+  "tokenizer_bos_token": [
+    "<|endoftext|>",
+    "0"
+  ],
+  "eot_token_id": 0,
+  "max_length": 2048
+}

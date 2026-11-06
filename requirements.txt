@@ -1,0 +1,7 @@
+torch>=2.6
+transformers>=5.0
+safetensors
+tokenizers
+accelerate
+datasets
+lm-eval==0.4.13

@@ -1,0 +1,57 @@
+{
+  "_comment": "Evaluation queue, processed in order by eval/run_queue.py. Each entry is one model. 'gated' models need an accepted HF license and HF_TOKEN; they are skipped if the token is missing.",
+  "queue": [
+    {
+      "name": "boccaccio-distill",
+      "model": "models/boccaccio-distill-hf"
+    },
+    {
+      "name": "boccaccio-base-p2",
+      "model": "models/boccaccio-base-p2-hf"
+    },
+    {
+      "name": "boccaccio-sft-v1",
+      "model": "models/boccaccio-sft-v1-hf"
+    },
+    {
+      "name": "qwen2.5-0.5b",
+      "model": "Qwen/Qwen2.5-0.5B"
+    },
+    {
+      "name": "qwen3-0.6b",
+      "model": "Qwen/Qwen3-0.6B"
+    },
+    {
+      "name": "smollm2-360m",
+      "model": "HuggingFaceTB/SmolLM2-360M"
+    },
+    {
+      "name": "pythia-410m",
+      "model": "EleutherAI/pythia-410m"
+    },
+    {
+      "name": "pythia-1b",
+      "model": "EleutherAI/pythia-1b"
+    },
+    {
+      "name": "minerva-350m",
+      "model": "sapienzanlp/Minerva-350M-base-v1.0",
+      "gated": true
+    },
+    {
+      "name": "minerva-1b",
+      "model": "sapienzanlp/Minerva-1B-base-v1.0",
+      "gated": true
+    },
+    {
+      "name": "gemma-3-1b-pt",
+      "model": "google/gemma-3-1b-pt",
+      "gated": true
+    },
+    {
+      "name": "llama-3.2-1b",
+      "model": "meta-llama/Llama-3.2-1B",
+      "gated": true
+    }
+  ]
+}

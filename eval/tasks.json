@@ -1,0 +1,43 @@
+{
+  "_comment": "Task suite for the paper. Each entry: lm-eval-harness task name and number of few-shot examples. Identical for every model.",
+  "suite": [
+    {
+      "task": "arc_it",
+      "num_fewshot": 0
+    },
+    {
+      "task": "hellaswag_it",
+      "num_fewshot": 0
+    },
+    {
+      "task": "belebele_ita_Latn",
+      "num_fewshot": 0
+    },
+    {
+      "task": "m_mmlu_it",
+      "num_fewshot": 5
+    },
+    {
+      "task": "include_base_44_italian",
+      "num_fewshot": 0
+    },
+    {
+      "task": "lambada_openai_mt_it",
+      "num_fewshot": 0
+    },
+    {
+      "task": "truthfulqa_it_mc1",
+      "num_fewshot": 0
+    },
+    {
+      "task": "truthfulqa_it_mc2",
+      "num_fewshot": 0
+    },
+    {
+      "task": "squad_it",
+      "num_fewshot": 0,
+      "batch_size": 16
+    }
+  ],
+  "include_path": "eval/tasks"
+}

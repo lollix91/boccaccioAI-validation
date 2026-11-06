@@ -1,0 +1,14 @@
+{
+  "model": "EleutherAI/pythia-1b",
+  "name": "pythia-1b",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 1.1228960301410604,
+  "nll_nats": 6432302.450645447,
+  "bytes": 8264212,
+  "tokens": 2617140,
+  "bytes_per_token": 3.157726373063726,
+  "token_ppl": 11.678624087632365,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 759.9
+}

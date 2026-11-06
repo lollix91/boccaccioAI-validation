@@ -1,0 +1,14 @@
+{
+  "model": "sapienzanlp/Minerva-350M-base-v1.0",
+  "name": "minerva-350m",
+  "dataset": "wiki-it-2025",
+  "bits_per_byte": 0.9720615715441882,
+  "nll_nats": 5568275.121639252,
+  "bytes": 8264212,
+  "tokens": 2127239,
+  "bytes_per_token": 3.8849475775876616,
+  "token_ppl": 13.702889588914266,
+  "docs": 1564,
+  "max_len": 2048,
+  "seconds": 407.3
+}
