@@ -27,6 +27,7 @@ eval/run_queue.py               evaluate the next unfinished model of eval/model
 eval/models.json                the model queue (order matters)
 eval/model_meta.json            display names, declared pretraining tokens (with sources), metrics
 eval/paper_assets.py            generate the paper tables, figures and LaTeX macros from results
+eval/extra_assets.py            extra paper macros: 8-task average without SQuAD-IT (paired tests), RAG gains, benchmark category ranges, blended hourly rate
 eval/consistency_check.py       re-derive every reported metric from the raw files (exit 1 on mismatch)
 eval/cost_model.json            GPU hours of every training run and the total bill (paper Table cost)
 eval/collect_samples.py         regenerate missing per-item samples (verified against the results)
@@ -115,6 +116,25 @@ numbers come from `benchmark/judge_report.json`, `benchmark/human_review/summary
 `tab_benchmarks.tex`, `tab_cost_tokens.tex`, `tab_fertility.tex`, `tab_rag.tex`,
 `tab_cost.tex`, `results_macros.tex` (`\bres{<model>}{<key>}`), `fig_stage_ablation.pdf`,
 `fig_score_vs_tokens.pdf`, `summary.json`.
+
+```bash
+python eval/extra_assets.py        # writes results_macros_extra.tex (override with --out-dir)
+```
+
+`eval/extra_assets.py` adds the macros that `paper_assets.py` does not produce, all read from the
+per-item samples (restore them first, see "Data availability"), `benchmark/` and
+`eval/cost_model.json`:
+
+- `\bres{<model>}{avg8}`, `avg8-diff`, `avg8-gap`, `avg8-ci`, `avg8-p`: unweighted mean of the eight
+  tasks without SQuAD-IT (in-domain for the distilled model) and the paired sign-flip permutation
+  test against the distilled model (95% paired bootstrap CI, Holm correction over all comparisons);
+- `\bres{rag}{gain-min}`, `gain-max`: range of the accuracy gain given by the shared retrieval to the
+  five baselines with a `*-rag` condition;
+- `\bres{bench}{n-ans-min}`, `n-ans-max`, `n-unans-min`, `n-unans-max`: items per category of the
+  scored benchmark;
+- `\bres{cost}{total-usd}`, `rental-usd`, `rate-usd`: the total bill given with `--total-usd` (default 97,
+  the author's approximate total including the teacher API), the rentals net of the API cost, and the
+  blended hourly rate over the GPU hours of `eval/cost_model.json`.
 
 ```bash
 python eval/consistency_check.py   # benchmark v2, human labels, lm-eval results, BPB/fertility, cost inputs
