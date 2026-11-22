@@ -244,7 +244,7 @@ def table_fertility(results_dir: Path) -> str | None:
         f"\\caption{{Tokenizer fertility $\\phi$ (tokens per whitespace word, lower is better) "
         f"and UTF-8 bytes per token on {fert['docs']:,} held-out Italian Wikipedia articles "
         f"created between June 2025 and September 2026 (Section~\\ref{{sec:eval}}). "
-        f"vs.\\ ours: fertility relative to the BoccaccioAI tokenizer.}}",
+        f"The column ``vs.\\ ours'' gives the ratio of tokens per word relative to the BoccaccioAI tokenizer (1 = same density).}}",
         "\\label{tab:fertility}",
         "\\begin{tabular}{lrrrr}",
         "\\toprule",
