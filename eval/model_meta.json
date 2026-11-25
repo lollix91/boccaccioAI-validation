@@ -1,5 +1,5 @@
 {
-  "_comment": "Static metadata for the paper tables/figures. Benchmark scores are NOT here: they are read from eval/results/. Parameter counts are computed from the HF configs by eval/paper_assets.py. pretrain_tokens = declared pretraining tokens (post-training excluded for every model).",
+  "_comment": "Static metadata for the paper tables/figures. Benchmark scores are NOT here: they are read from eval/results/. Parameter counts are computed from the HF configs by eval/paper_assets.py. pretrain_tokens = pretraining tokens declared (for BoccaccioAI: processed, warm start included) (post-training excluded for every model).",
   "models": [
     {
       "name": "boccaccio-base-p2",
@@ -8,8 +8,8 @@
       "table_label": "Base (P2)",
       "hf": "models/boccaccio-base-p2-hf",
       "group": "ours",
-      "pretrain_tokens": 10.8e9,
-      "source": "main.tex Tab. cost: 6.6B (P1) + 4.2B (P2) = 10.8B"
+      "pretrain_tokens": 12845056000,
+      "source": "tokens processed by the weights: (12,500 P1 + 8,000 P2 + 4,000 interrupted warm-start steps) x 524,288 = 12.8B; the 10.7B schedule alone excludes the warm start (cost_model.json)"
     },
     {
       "name": "boccaccio-sft-v1",
@@ -18,7 +18,7 @@
       "table_label": "SFT V1",
       "hf": "models/boccaccio-sft-v1-hf",
       "group": "ours",
-      "pretrain_tokens": 10.8e9,
+      "pretrain_tokens": 12845056000,
       "source": "same base as boccaccio-base-p2"
     },
     {
@@ -28,7 +28,7 @@
       "table_label": "Distilled",
       "hf": "models/boccaccio-distill-hf",
       "group": "ours",
-      "pretrain_tokens": 10.8e9,
+      "pretrain_tokens": 12845056000,
       "source": "same base as boccaccio-base-p2"
     },
     {

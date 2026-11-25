@@ -1,5 +1,5 @@
 {
-  "_doc": "Inputs of the compute accounting used by eval/paper_assets.py (tab_cost.tex, \\bres{cost}{...}). Hours come from the model README / training logs; stage-2 pretraining and the interrupted first attempt are derived from the measured stage-1 throughput (hours_from_throughput_of). 'deployed' runs form the chain that produced the deployed model (P1 -> P2 -> distillation, verified on the weights: the distilled model is closer to the stage-2 base than to SFT V1); 'other' runs were spent but are not in that chain. invoiced_total_usd_below: upper bound of the author's invoices covering every run listed here (rentals and teacher API).",
+  "_doc": "Inputs of the compute accounting used by eval/paper_assets.py (tab_cost.tex, \\bres{cost}{...}). Hours come from the model README / training logs; stage-2 pretraining and the interrupted first attempt are derived from the measured stage-1 throughput (hours_from_throughput_of). 'deployed' runs form the chain that produced the deployed model (interrupted warm start -> P1 -> P2 -> distillation, verified on the weights: the distilled model is closer to the stage-2 base than to SFT V1); 'other' runs were spent but are not in that chain. invoiced_total_usd_below: upper bound of the author's invoices covering every run listed here (rentals and teacher API).",
   "tokens_per_step_pretrain": 524288,
   "n_params": 703544832,
   "h100_bf16_dense_peak_flops": 989e12,
@@ -7,6 +7,8 @@
   "stages": [
     {"key": "data", "label": "Tokenizer training + data pipeline", "hardware": "CPU VM", "hours": 6, "kind": "deployed", "gpu": false,
      "source": "README: streaming tokenisation ~3 h, exact dedup ~10 min, download/filtering"},
+    {"key": "p1_interrupted", "label": "Interrupted first attempt (warm start of stage 1)", "hardware": "H100", "steps": 4000, "hours_from_throughput_of": "p1", "kind": "deployed", "pretrain": true, "warm_start": true,
+     "source": "README 'Note storiche': stopped at ~4,000 steps; its weights (not the optimizer state) initialised stage 1, so it is part of the chain that produced the deployed weights"},
     {"key": "p1", "label": "Pretraining stage 1 (CulturaX)", "hardware": "H100", "hours": 25, "steps": 12500, "kind": "deployed", "pretrain": true,
      "source": "README: ~25 h, 12,500 steps"},
     {"key": "p2", "label": "Pretraining stage 2 (Wikipedia + mC4)", "hardware": "H100", "steps": 8000, "hours_from_throughput_of": "p1", "kind": "deployed", "pretrain": true,
@@ -17,8 +19,6 @@
      "source": "sum of the per-request 'cost' field of distill/generated/answers.jsonl (79,542 teacher answers)"},
     {"key": "rag_index", "label": "Retrieval index embedding", "hardware": "H100", "hours": 0.75, "kind": "deployed",
      "source": "README: e5-small embedding of the passages ~45 min on H100"},
-    {"key": "p1_interrupted", "label": "Interrupted first attempt (warm start of stage 1)", "hardware": "H100", "steps": 4000, "hours_from_throughput_of": "p1", "kind": "other",
-     "source": "README 'Note storiche': stopped at ~4,000 steps; its weights (not the optimizer state) initialised stage 1"},
     {"key": "sft_stale", "label": "SFT run from a stale checkpoint (discarded)", "hardware": "H100", "hours": 0.75, "kind": "other",
      "source": "README 'Note storiche'; duration not logged, assumed equal to SFT V1"},
     {"key": "sft_v1", "label": "Instruction tuning V1", "hardware": "H100", "hours": 0.75, "kind": "other",

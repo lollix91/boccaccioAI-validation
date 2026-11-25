@@ -252,6 +252,14 @@ def cost_checks() -> None:
     """Cost-model inputs that can be verified against logs."""
     print("\n[cost model]")
     cm = json.loads((ROOT / "eval" / "cost_model.json").read_text("utf-8"))
+    meta = json.loads((ROOT / "eval" / "model_meta.json").read_text("utf-8"))
+    pre_steps = sum(s["steps"] for s in cm["stages"] if s.get("pretrain"))
+    processed = pre_steps * cm["tokens_per_step_pretrain"]
+    for m in meta["models"]:
+        if m["group"] == "ours":
+            check(m["pretrain_tokens"] == processed,
+                  f"{m['name']}: pretrain_tokens = processed pretraining tokens "
+                  f"({pre_steps} steps incl. warm start)")
     log = DISTILL_LOG / "answers.jsonl"
     if not log.exists():
         print("  skip  distillation log not available")

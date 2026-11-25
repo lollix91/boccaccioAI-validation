@@ -572,7 +572,8 @@ def load_cost(path: Path) -> dict | None:
         "gpu_hours_all": gpu_h(None),
         "h100_hours_deployed": gpu_h("deployed", "H100"),
         "pretrain_hours": sum(s["hours_est"] for s in pre),
-        "pretrain_tokens": sum(s["steps"] for s in pre) * tps,
+        "pretrain_tokens": sum(s["steps"] for s in pre if not s.get("warm_start")) * tps,
+        "processed_tokens": sum(s["steps"] for s in pre) * tps,
         "interrupted_tokens": by_key["p1_interrupted"]["steps"] * tps,
         "p1_tokens_per_s": p1["steps"] * tps / (p1["hours_est"] * 3600),
         "p1_mfu": p1_flops / (p1["hours_est"] * 3600 * cm["h100_bf16_dense_peak_flops"]),
@@ -598,9 +599,10 @@ def table_cost(cm: dict) -> str:
         "\\caption{Compute of every run. Hours are those recorded when the runs were made, or derived "
         "from the measured stage-1 throughput where the duration was not logged reliably "
         "(stage~2 and the interrupted first attempt). \\emph{Deployed chain}: the runs that "
-        "produced the deployed model; \\emph{other runs}: the interrupted first attempt, whose "
-        "weights (but not optimiser state) warm-started stage~1, and the instruction-tuning "
-        "runs that were evaluated but not deployed. The total bill covers every run listed, "
+        "produced the deployed model, including the interrupted first attempt, whose weights "
+        "(but not optimiser state) warm-started stage~1; \\emph{other runs}: the "
+        "instruction-tuning runs that were evaluated but not deployed. The total bill covers "
+        "every run listed, "
         "including the teacher API.}",
         "\\label{tab:cost}",
         "\\small",
